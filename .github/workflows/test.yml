@@ -8,7 +8,7 @@ on:
 
 jobs:
   tests:
-    name: Unit tests
+    name: Tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -49,7 +49,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
-          context: .
+          context: ./
           file: ./Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
